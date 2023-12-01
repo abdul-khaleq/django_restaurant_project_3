@@ -1,0 +1,23 @@
+{% extends "base.html" %} {% block content %}
+
+<section>
+  <div class="container my-5">
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+      {% for i in data.categories %}
+      <div class="col">
+        <div class="card h-100 shadow-sm">
+          <img src="{{i.strCategoryThumb}}" class="card-img-top" alt="..." />
+          <div class="card-body">
+            <h1 class="text-center"> <span class="bg-primary py-2 px-3 rounded-circle">{{i.idCategory}}</span></h1>
+            <h5 class="card-title">{{i.strCategory}}</h5>
+            <p class="card-text">
+              {{ i.strCategoryDescription | truncatewords:10 }}
+            </p>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock content %}
